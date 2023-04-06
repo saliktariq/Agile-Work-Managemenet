@@ -44,5 +44,11 @@
     <ClInclude Include="KanbanColumnsDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="users.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UsersDAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

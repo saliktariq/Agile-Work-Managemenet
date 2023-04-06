@@ -5,6 +5,8 @@
 #include "Project.h"
 #include "KanbanColumnsDAO.h"
 #include "KanbanBoardsDAO.h"
+#include "UsersDAO.h"
+
 using namespace std;
 int main() {
 
@@ -137,6 +139,44 @@ int main() {
         std::cout << "Position: " << column->getPosition() << std::endl;
     }
 
+
+    // Test the UsersDAO
+    UsersDAO usersDAO(db);
+    User user1(0, "user1", "User One", "user1@example.com", "user");
+    User user2(0, "user2", "User Two", "user2@example.com", "admin");
+
+    // Create two users
+    usersDAO.create(user1);
+    usersDAO.create(user2);
+
+    // List all users
+    std::vector<std::shared_ptr<User>> users = usersDAO.list();
+    for (auto& user : users) {
+        std::cout << "User ID: " << user->getId() << ", User Name: " << user->getUsername() << ", Full Name: " << user->getFullName() << ", Email: " << user->getEmail() << ", Role: " << user->getRole() << std::endl;
+    }
+
+    // Update the role of user 1
+    user1.setRole("admin");
+    usersDAO.update(user1);
+
+    // Delete user 2
+    usersDAO.del(user2.getId());
+
+    // List all users again
+    users = usersDAO.list();
+    for (auto& user : users) {
+        std::cout << "User ID: " << user->getId() << ", User Name: " << user->getUsername() << ", Full Name: " << user->getFullName() << ", Email: " << user->getEmail() << ", Role: " << user->getRole() << std::endl;
+    }
+
+    // Get user by ID
+    std::shared_ptr<User> user = usersDAO.getUser(1);
+    if (user != nullptr) {
+        std::cout << "User ID: " << user->getId() << std::endl;
+        std::cout << "User Name: " << user->getUsername() << std::endl;
+        std::cout << "Full Name: " << user->getFullName() << std::endl;
+        std::cout << "Email: " << user->getEmail() << std::endl;
+        std::cout << "Role: " << user->getRole() << std::endl;
+    }
 
 
     return 0;

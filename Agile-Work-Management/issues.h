@@ -16,11 +16,11 @@ public:
     int project_id_;
     int issue_type_;
     int column_id_;
-    float estimate_;
+    double estimate_;
 
 
     Issues(int issue_id, std::string summary, std::string description, std::string status, std::string priority,
-        int assignee, int project_id, int issue_type, int column_id, float estimate)
+        int assignee, int project_id, int issue_type, int column_id, double estimate)
         : issue_id_(issue_id), summary_(summary), description_(description), status_(status), priority_(priority),
         assignee_(assignee), project_id_(project_id), issue_type_(issue_type), column_id_(column_id), estimate_(estimate) {}
 
@@ -51,8 +51,8 @@ public:
     int getColumnId() const { return column_id_; }
     void setColumnId(int column_id) { column_id_ = column_id; }
 
-    float getEstimate() const { return estimate_; }
-    void setEstimate(float estimate) { estimate_ = estimate; }
+    double getEstimate() const { return estimate_; }
+    void setEstimate(double estimate) { estimate_ = estimate; }
 };
 
 #endif

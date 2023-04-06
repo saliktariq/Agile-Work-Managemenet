@@ -119,6 +119,7 @@
       <PreprocessorDefinitions>STATIC_CONCPP;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\cpp_db_library\include\jdbc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,6 +146,7 @@
     <ClInclude Include="kanban_boards.h" />
     <ClInclude Include="kanban_columns.h" />
     <ClInclude Include="project.h" />
+    <ClInclude Include="Repository.h" />
     <ClInclude Include="users.h" />
     <ClInclude Include="UsersDAO.h" />
   </ItemGroup>

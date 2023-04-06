@@ -66,12 +66,13 @@ public:
             pstmt->setInt(6, issue.project_id_);
             pstmt->setInt(7, issue.issue_type_);
             pstmt->setInt(8, issue.column_id_);
-            if (issue.estimate_ != 0.0) {
-                pstmt->setDouble(9, issue.estimate_);
-            }
-            else {
-                pstmt->setDouble(9, 0);
-            }
+            pstmt->setDouble(9, issue.estimate_);
+            //if (issue.estimate_ != 0.0) {
+            //    pstmt->setDouble(9, issue.estimate_);
+            //}
+            //else {
+            //    pstmt->setDouble(9, 0);
+            //}
             pstmt->setInt(10, issue.issue_id_);
             pstmt->execute();
             delete pstmt;

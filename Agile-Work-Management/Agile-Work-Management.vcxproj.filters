@@ -56,5 +56,11 @@
     <ClInclude Include="IssuesTypesDAO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="issues.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IssuesDAO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

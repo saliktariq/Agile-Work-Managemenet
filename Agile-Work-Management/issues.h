@@ -1,48 +1,56 @@
 #ifndef ISSUES_H
 #define ISSUES_H
 
+#include <iostream>
 #include <string>
 
 class Issues {
 private:
-    int id_;
+    int issue_id_;
     std::string summary_;
     std::string description_;
     std::string status_;
     std::string priority_;
     int assignee_;
-    int reporter_;
-    int projectId_;
-    int issueType_;
-    int columnId_;
+    int project_id_;
+    int issue_type_;
+    int column_id_;
     float estimate_;
 
 public:
-    Issues(int id, std::string summary, std::string description, std::string status, std::string priority, int assignee, int reporter, int projectId, int issueType, int columnId, float estimate)
-        : id_(id), summary_(summary), description_(description), status_(status), priority_(priority), assignee_(assignee), reporter_(reporter), projectId_(projectId), issueType_(issueType), columnId_(columnId), estimate_(estimate) {}
+    Issues(int issue_id, std::string summary, std::string description, std::string status, std::string priority,
+        int assignee, int project_id, int issue_type, int column_id, float estimate)
+        : issue_id_(issue_id), summary_(summary), description_(description), status_(status), priority_(priority),
+        assignee_(assignee), project_id_(project_id), issue_type_(issue_type), column_id_(column_id), estimate_(estimate) {}
 
-    int getId() const { return id_; }
+    int getIssueId() const { return issue_id_; }
+    void setIssueId(int issue_id) { issue_id_ = issue_id; }
+
     std::string getSummary() const { return summary_; }
-    std::string getDescription() const { return description_; }
-    std::string getStatus() const { return status_; }
-    std::string getPriority() const { return priority_; }
-    int getAssignee() const { return assignee_; }
-    int getReporter() const { return reporter_; }
-    int getProjectId() const { return projectId_; }
-    int getIssueType() const { return issueType_; }
-    int getColumnId() const { return columnId_; }
-    float getEstimate() const { return estimate_; }
+    void setSummary(const std::string& summary) { summary_ = summary; }
 
-    void setId(int id) { id_ = id; }
-    void setSummary(std::string summary) { summary_ = summary; }
-    void setDescription(std::string description) { description_ = description; }
-    void setStatus(std::string status) { status_ = status; }
-    void setPriority(std::string priority) { priority_ = priority; }
+    std::string getDescription() const { return description_; }
+    void setDescription(const std::string& description) { description_ = description; }
+
+    std::string getStatus() const { return status_; }
+    void setStatus(const std::string& status) { status_ = status; }
+
+    std::string getPriority() const { return priority_; }
+    void setPriority(const std::string& priority) { priority_ = priority; }
+
+    int getAssignee() const { return assignee_; }
     void setAssignee(int assignee) { assignee_ = assignee; }
-    void setReporter(int reporter) { reporter_ = reporter; }
-    void setProjectId(int projectId) { projectId_ = projectId; }
-    void setIssueType(int issueType) { issueType_ = issueType; }
-    void setColumnId(int columnId) { columnId_ = columnId; }
+
+    int getProjectId() const { return project_id_; }
+    void setProjectId(int project_id) { project_id_ = project_id; }
+
+    int getIssueType() const { return issue_type_; }
+    void setIssueType(int issue_type) { issue_type_ = issue_type; }
+
+    int getColumnId() const { return column_id_; }
+    void setColumnId(int column_id) { column_id_ = column_id; }
+
+    float getEstimate() const { return estimate_; }
     void setEstimate(float estimate) { estimate_ = estimate; }
 };
 

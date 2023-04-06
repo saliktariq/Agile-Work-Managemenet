@@ -7,6 +7,7 @@
 #include "KanbanBoardsDAO.h"
 #include "UsersDAO.h"
 #include "IssuesTypesDAO.h"
+#include "IssuesDAO.h"
 
 using namespace std;
 int main() {
@@ -210,6 +211,55 @@ int main() {
     if (issueType != nullptr) {
         std::cout << "Issue Type ID: " << issueType->getId() << ", Issue Type Name: " << issueType->getName() << std::endl;
     }
+
+
+    // Create an IssuesDAO object
+    IssuesDAO issuesDAO(db);
+
+    // Create an issue
+    Issues issue(0, "Test Issue", "This is a test issue", "Open", "High", 1, 1, 1, 1, 4.5);
+
+    // Test createIssue()
+    issuesDAO.createIssue(issue);
+    std::cout << "Created issue with ID: " << issue.getIssueId() << std::endl;
+
+    // Test listIssues()
+    std::vector<std::shared_ptr<Issues>> issuesList = issuesDAO.listIssues(1);
+    std::cout << "List of issues:" << std::endl;
+    for (const auto& issuePtr : issuesList) {
+        std::cout << "ID: " << issuePtr->getIssueId() << ", Summary: " << issuePtr->getSummary() << std::endl;
+    }
+
+    // Test getIssueById()
+    std::shared_ptr<Issues> retrievedIssue = issuesDAO.getIssueById(issue.getIssueId());
+    if (retrievedIssue) {
+        std::cout << "Retrieved issue with ID " << retrievedIssue->getIssueId() << ": " << retrievedIssue->getSummary() << std::endl;
+    }
+    else {
+        std::cerr << "Failed to retrieve issue with ID " << issue.getIssueId() << std::endl;
+    }
+
+    // Test updateIssue()
+    issue.setSummary("Updated test issue");
+    issuesDAO.updateIssue(issue);
+    retrievedIssue = issuesDAO.getIssueById(issue.getIssueId());
+    if (retrievedIssue) {
+        std::cout << "Updated issue with ID " << retrievedIssue->getIssueId() << ": " << retrievedIssue->getSummary() << std::endl;
+    }
+    else {
+        std::cerr << "Failed to update issue with ID " << issue.getIssueId() << std::endl;
+    }
+
+    // Test deleteIssue()
+    issuesDAO.deleteIssue(issue.getIssueId());
+    retrievedIssue = issuesDAO.getIssueById(issue.getIssueId());
+    if (retrievedIssue) {
+        std::cerr << "Failed to delete issue with ID " << issue.getIssueId() << std::endl;
+    }
+    else {
+        std::cout << "Deleted issue with ID " << issue.getIssueId() << std::endl;
+    }
+
 
 
     return 0;

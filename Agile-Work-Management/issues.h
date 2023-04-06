@@ -5,7 +5,8 @@
 #include <string>
 
 class Issues {
-private:
+public:
+
     int issue_id_;
     std::string summary_;
     std::string description_;
@@ -17,7 +18,7 @@ private:
     int column_id_;
     float estimate_;
 
-public:
+
     Issues(int issue_id, std::string summary, std::string description, std::string status, std::string priority,
         int assignee, int project_id, int issue_type, int column_id, float estimate)
         : issue_id_(issue_id), summary_(summary), description_(description), status_(status), priority_(priority),

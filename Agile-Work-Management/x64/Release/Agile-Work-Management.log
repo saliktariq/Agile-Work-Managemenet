@@ -1,36 +1,20 @@
-﻿  Scanning sources for module dependencies...
-  main.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\xutility(261,71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\xutility(260,16): message : see reference to function template instantiation '_Ty *std::construct_at<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&,0x0>(_Ty *const ,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(<expr>)' being compiled
+﻿  ProjectDAO.h
+  menu.cpp
+Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\Agile-Work-Management\menu.cpp(318,11): warning C4101: 'issueId': unreferenced local variable
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xutility(275,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(1983): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(_Ty &,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(false)' being compiled
           with
           [
               _Ty=Issues
           ]
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\memory(1983): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(_Ty &,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(false)' being compiled
-          with
-          [
-              _Ty=Issues
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\memory(2663): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\memory(2664,20): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
-C:\githubrepositories\Agile-Work-Managemenet\Agile-Work-Management\IssuesDAO.h(123,1): message : see reference to function template instantiation 'std::shared_ptr<Issues> std::make_shared<Issues,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\xutility(275,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\xutility(262,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\xutility(268): message : see reference to function template instantiation '_Ty *std::construct_at<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&,0x0>(_Ty *const ,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(false)' being compiled
-          with
-          [
-              _Ty=Issues
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\memory(1983): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(_Ty &,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(false)' being compiled
-          with
-          [
-              _Ty=Issues
-          ]
-     Creating library C:\githubrepositories\Agile-Work-Managemenet\Agile-Work-Management\x64\Release\Agile-Work-Management.lib and object C:\githubrepositories\Agile-Work-Managemenet\Agile-Work-Management\x64\Release\Agile-Work-Management.exp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(2663): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(2664,20): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
+Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\Agile-Work-Management\issuesDAO.h(122,1): message : see reference to function template instantiation 'std::shared_ptr<Issues> std::make_shared<Issues,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
+     Creating library Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\Agile-Work-Management\x64\Release\Agile-Work-Management.lib and object Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\Agile-Work-Management\x64\Release\Agile-Work-Management.exp
   Generating code
-  1 of 297 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  95 of 898 functions (10.6%) were compiled, the rest were copied from previous compilation.
+    5 functions were new in current compilation
+    145 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 mysqlcppconn-static.lib(mysql_driver.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_driver.obj)' or at ''; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at ''; linking object as if no debug info
@@ -54,4 +38,4 @@ mysqlcppconn-static.lib(mysql_native_resultset_wrapper.obj) : warning LNK4099: P
 mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj)' or at ''; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_art_rset_metadata.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_art_rset_metadata.obj)' or at ''; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_resultset_metadata.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_resultset_metadata.obj)' or at ''; linking object as if no debug info
-  Agile-Work-Management.vcxproj -> C:\githubrepositories\Agile-Work-Managemenet\Agile-Work-Management\x64\Release\Agile-Work-Management.exe
+  Agile-Work-Management.vcxproj -> Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\Agile-Work-Management\x64\Release\Agile-Work-Management.exe

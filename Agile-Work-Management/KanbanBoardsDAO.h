@@ -17,7 +17,7 @@ private:
 public:
     KanbanBoardsDAO(std::shared_ptr<Database> db) : db_(db) {}
 
-    void create(KanbanBoard& board) {
+    std::shared_ptr<KanbanBoard> create(KanbanBoard& board) {
         try {
             sql::Connection* con = db_->getConnection();
             sql::PreparedStatement* pstmt = con->prepareStatement("INSERT INTO kanban_boards (board_name, project_id, start_date, end_date) VALUES (?, ?, ?, ?)");
@@ -37,7 +37,8 @@ public:
             delete rs;
             delete stmt;
 
-
+            db_->disconnect();
+            return std::make_shared<KanbanBoard>(board);
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error creating kanban board: " << e.what() << std::endl;
@@ -55,7 +56,7 @@ public:
             pstmt->setInt(5, board.getId());
             pstmt->execute();
             delete pstmt;
-
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error updating kanban board: " << e.what() << std::endl;
@@ -70,7 +71,7 @@ public:
             pstmt->setInt(1, id);
             pstmt->execute();
             delete pstmt;
-
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error deleting kanban board: " << e.what() << std::endl;
@@ -100,7 +101,7 @@ public:
 
             delete rs;
             delete pstmt;
-
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error listing Kanban boards: " << e.what() << std::endl;

@@ -41,6 +41,7 @@ public:
             delete rs;
             delete stmt;
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error creating issue: " << e.what() << std::endl;
@@ -65,16 +66,16 @@ public:
             pstmt->setInt(6, issue.project_id_);
             pstmt->setInt(7, issue.issue_type_);
             pstmt->setInt(8, issue.column_id_);
-            pstmt->setDouble(9, issue.estimate_);
-            //if (issue.estimate_ != 0.0) {
-            //    pstmt->setDouble(9, issue.estimate_);
-            //}
-            //else {
-            //    pstmt->setDouble(9, 0);
-            //}
+            if (issue.estimate_ != 0.0) {
+                pstmt->setDouble(9, issue.estimate_);
+            }
+            else {
+                pstmt->setDouble(9, 0);
+            }
             pstmt->setInt(10, issue.issue_id_);
             pstmt->execute();
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error updating issue: " << e.what() << std::endl;
@@ -90,6 +91,7 @@ public:
             pstmt->setInt(1, issue_id);
             pstmt->execute();
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error deleting issue: " << e.what() << std::endl;
@@ -123,6 +125,7 @@ public:
 
             delete rs;
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error listing issues: " << e.what() << std::endl;
@@ -152,12 +155,13 @@ public:
                 std::shared_ptr<Issues> issue = std::make_shared<Issues>(issue_id, summary, description, status, priority, assignee, project, issueType, columnId, estimate);
                 delete rs;
                 delete pstmt;
+                db_->disconnect();
                 return issue;
             }
             else {
                 delete rs;
                 delete pstmt;
-
+                db_->disconnect();
                 return nullptr;
             }
         }

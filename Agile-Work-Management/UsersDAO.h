@@ -36,6 +36,8 @@ public:
             }
             delete rs;
             delete stmt;
+
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error creating user: " << e.what() << std::endl;
@@ -53,6 +55,7 @@ public:
             pstmt->setInt(5, user.getId());
             pstmt->execute();
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error updating user: " << e.what() << std::endl;
@@ -67,6 +70,7 @@ public:
             pstmt->setInt(1, id);
             pstmt->execute();
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error deleting user: " << e.what() << std::endl;
@@ -94,6 +98,7 @@ public:
 
             delete rs;
             delete stmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error listing users: " << e.what() << std::endl;
@@ -120,16 +125,53 @@ public:
                 );
                 delete rs;
                 delete pstmt;
+                db_->disconnect();
                 return user;
             }
             else {
                 delete rs;
                 delete pstmt;
+                db_->disconnect();
                 return nullptr;
             }
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error getting user: " << e.what() << std::endl;
+            return nullptr;
+        }
+    }
+
+
+    //Get a user by username
+    std::shared_ptr<User> getUserByUsername(const std::string& username) {
+        try {
+            sql::Connection* con = db_->getConnection();
+            sql::PreparedStatement* pstmt = con->prepareStatement("SELECT * FROM users WHERE user_name = ?");
+            pstmt->setString(1, username);
+            sql::ResultSet* rs = pstmt->executeQuery();
+
+            if (rs->next()) {
+                std::shared_ptr<User> user = std::make_shared<User>(
+                    rs->getInt("user_id"),
+                    rs->getString("user_name"),
+                    rs->getString("full_name"),
+                    rs->getString("user_email"),
+                    rs->getString("role")
+                );
+                delete rs;
+                delete pstmt;
+                db_->disconnect();
+                return user;
+            }
+            else {
+                delete rs;
+                delete pstmt;
+                db_->disconnect();
+                return nullptr;
+            }
+        }
+        catch (const sql::SQLException& e) {
+            std::cerr << "Error getting user by username: " << e.what() << std::endl;
             return nullptr;
         }
     }

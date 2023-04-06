@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS issue_types (
   PRIMARY KEY (issue_type_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ​
+-- Create the table for storing the issues
 CREATE TABLE IF NOT EXISTS issues (
   issue_id INT NOT NULL AUTO_INCREMENT,
   summary VARCHAR(255) NOT NULL,
@@ -59,7 +60,7 @@ CREATE TABLE IF NOT EXISTS issues (
   project_id INT NOT NULL,
   issue_type INT NOT NULL,
   column_id INT NOT NULL,
-  estimate DOUBLE,
+  estimate FLOAT,
   PRIMARY KEY (issue_id),
   FOREIGN KEY (assignee) REFERENCES users(user_id),
   FOREIGN KEY (project_id) REFERENCES projects(project_id),

@@ -14,7 +14,7 @@ private:
 public:
     ProjectsDAO(std::shared_ptr<Database> db) : db_(db) {}
 
-    void create(Project& project) {
+    std::shared_ptr<Project> create(Project& project) {
         try {
             sql::Connection* con = db_->getConnection();
             sql::PreparedStatement* pstmt = con->prepareStatement("INSERT INTO projects (project_name) VALUES (?)");
@@ -30,6 +30,9 @@ public:
             }
             delete rs;
             delete stmt;
+
+            db_->disconnect();
+            return std::make_shared<Project>(project); // Return a shared pointer
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error creating project: " << e.what() << std::endl;
@@ -44,6 +47,7 @@ public:
             pstmt->setInt(2, project.getId());
             pstmt->execute();
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error updating project: " << e.what() << std::endl;
@@ -58,6 +62,7 @@ public:
             pstmt->setInt(1, id);
             pstmt->execute();
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error deleting project: " << e.what() << std::endl;
@@ -78,6 +83,7 @@ public:
             }
             delete rs;
             delete stmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error listing projects: " << e.what() << std::endl;

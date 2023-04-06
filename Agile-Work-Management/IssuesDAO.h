@@ -41,7 +41,6 @@ public:
             delete rs;
             delete stmt;
             delete pstmt;
-            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error creating issue: " << e.what() << std::endl;
@@ -76,7 +75,6 @@ public:
             pstmt->setInt(10, issue.issue_id_);
             pstmt->execute();
             delete pstmt;
-            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error updating issue: " << e.what() << std::endl;
@@ -92,7 +90,6 @@ public:
             pstmt->setInt(1, issue_id);
             pstmt->execute();
             delete pstmt;
-            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error deleting issue: " << e.what() << std::endl;
@@ -126,7 +123,6 @@ public:
 
             delete rs;
             delete pstmt;
-            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error listing issues: " << e.what() << std::endl;
@@ -156,13 +152,12 @@ public:
                 std::shared_ptr<Issues> issue = std::make_shared<Issues>(issue_id, summary, description, status, priority, assignee, project, issueType, columnId, estimate);
                 delete rs;
                 delete pstmt;
-                db_->disconnect();
                 return issue;
             }
             else {
                 delete rs;
                 delete pstmt;
-                db_->disconnect();
+
                 return nullptr;
             }
         }

@@ -3,6 +3,8 @@
 #include "database.h"
 #include "ProjectDAO.h"
 #include "Project.h"
+//#include "kanban_boards.h"
+#include "KanbanBoardsDAO.h"
 using namespace std;
 int main() {
 
@@ -22,46 +24,83 @@ int main() {
 
     db->connect();
     
-    // Create a new ProjectsDAO object
-    ProjectsDAO dao(db);
-
-    // Create a new project and insert it into the database
+    // Test the ProjectDAO
+    ProjectsDAO projectDAO(db);
     Project project1(0, "Project 1");
-    dao.create(project1);
-    std::cout << "Created project with ID: " << project1.getId() << std::endl;
+    Project project2(0, "Project 2");
 
-    // Read the project from the database
-    std::shared_ptr<Project> project1Ptr = dao.getProject(project1.getId());
-    if (project1Ptr != nullptr) {
-        std::cout << "Project name: " << project1Ptr->getName() << std::endl;
-    }
-    else {
-        std::cout << "Project not found." << std::endl;
-    }
+    // Create two projects
+    projectDAO.create(project1);
+    projectDAO.create(project2);
 
-    // Update the name of the project in the database
-    project1.setName("Project 1 Updated");
-    dao.update(project1);
-
-    // Read the project from the database again to verify the update
-    project1Ptr = dao.getProject(project1.getId());
-    if (project1Ptr != nullptr) {
-        std::cout << "Project name: " << project1Ptr->getName() << std::endl;
-    }
-    else {
-        std::cout << "Project not found." << std::endl;
+    // List all projects
+    std::vector<std::shared_ptr<Project>> projects = projectDAO.list();
+    for (auto& project : projects) {
+        std::cout << "Project ID: " << project->getId() << ", Project Name: " << project->getName() << std::endl;
     }
 
-    // List all projects in the database
-    std::vector<std::shared_ptr<Project>> projects = dao.list();
-    std::cout << "List of projects:" << std::endl;
-    for (const auto& project : projects) {
-        std::cout << "  " << project->getName() << ", ID: " << project->getId() << std::endl;
+    // Update the name of project 1
+    project1.setName("Updated Project 1");
+    projectDAO.update(project1);
+
+    // Delete project 2
+  //  projectDAO.del(project2.getId());
+
+    // List all projects again
+    projects = projectDAO.list();
+    for (auto& project : projects) {
+        std::cout << "Project ID: " << project->getId() << ", Project Name: " << project->getName() << std::endl;
     }
 
-    // Delete the project from the database
-    dao.del(project1.getId());
-    std::cout << "Deleted project with ID: " << project1.getId() << std::endl;
+   //  Test the KanbanBoardsDAO
+    KanbanBoardsDAO kanbanBoardsDAO(db);
+    KanbanBoard board1(0, "Board 1", project1.getId(), "2023-04-10", "2023-04-20");
+    KanbanBoard board2(0, "Board 2", project1.getId(), "2023-04-15", "2023-04-25");
+
+    // Create two boards
+    kanbanBoardsDAO.create(board1);
+    kanbanBoardsDAO.create(board2);
+
+    // List all boards for project 1
+    std::vector<std::shared_ptr<KanbanBoard>> boards = kanbanBoardsDAO.list(project1.getId());
+    for (auto& board : boards) {
+        std::cout << "Board ID: " << board->getId() << ", Board Name: " << board->getName() << ", Project ID: " << board->getProjectId() << std::endl;
+    }
+
+    // Update the name of board 1
+    board1.setName("Updated Board 1");
+    kanbanBoardsDAO.update(board1);
+
+    // Delete board 2
+    kanbanBoardsDAO.del(board2.getId());
+
+    // List all boards for project 1 again
+    boards = kanbanBoardsDAO.list(project1.getId());
+    for (auto& board : boards) {
+        std::cout << "Board ID: " << board->getId() << ", Board Name: " << board->getName() << ", Project ID: " << board->getProjectId() << std::endl;
+    }
+
+    // Get board by ID
+    std::shared_ptr<KanbanBoard> board = kanbanBoardsDAO.getBoard(1);
+    if (board != nullptr) {
+        std::cout << "Board ID: " << board->getId() << std::endl;
+        std::cout << "Board Name: " << board->getName() << std::endl;
+        std::cout << "Project ID: " << board->getProjectId() << std::endl;
+        std::cout << "Start Date: " << board->getStartDate() << std::endl;
+        std::cout << "End Date: " << board->getEndDate() << std::endl;
+    }
+
+    // List all boards for a project
+    std::vector<std::shared_ptr<KanbanBoard>> boards2 = kanbanBoardsDAO.list(1);
+    for (auto board : boards2) {
+        std::cout << "Board ID: " << board->getId() << std::endl;
+        std::cout << "Board Name: " << board->getName() << std::endl;
+        std::cout << "Project ID: " << board->getProjectId() << std::endl;
+        std::cout << "Start Date: " << board->getStartDate() << std::endl;
+        std::cout << "End Date: " << board->getEndDate() << std::endl;
+    }
+
+
 
     return 0;
 }

@@ -13,7 +13,10 @@ private:
     std::string end_date_;
 
 public:
-    KanbanBoard() : id_(0) {}
+    KanbanBoard() : id_(0), project_id_(0) {}
+
+    //KanbanBoard(int id, const std::string& name, int project_id, const std::string& start_date, const std::string& end_date)
+    //    : id_(id), name_(name), project_id_(project_id), start_date_(start_date), end_date_(end_date) {}
 
     KanbanBoard(int id, const std::string& name, int project_id, const std::string& start_date, const std::string& end_date)
         : id_(id), name_(name), project_id_(project_id), start_date_(start_date), end_date_(end_date) {}

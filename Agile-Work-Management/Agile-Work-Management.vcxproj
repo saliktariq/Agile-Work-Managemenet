@@ -136,6 +136,8 @@
   <ItemGroup>
     <ClInclude Include="credentials.h" />
     <ClInclude Include="database.h" />
+    <ClInclude Include="IssuesTypesDAO.h" />
+    <ClInclude Include="issue_types.h" />
     <ClInclude Include="KanbanBoardsDAO.h" />
     <ClInclude Include="KanbanColumnsDAO.h" />
     <ClInclude Include="kanban_boards.h" />

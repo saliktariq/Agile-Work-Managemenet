@@ -6,6 +6,7 @@
 #include "KanbanColumnsDAO.h"
 #include "KanbanBoardsDAO.h"
 #include "UsersDAO.h"
+#include "IssuesTypesDAO.h"
 
 using namespace std;
 int main() {
@@ -178,6 +179,36 @@ int main() {
         std::cout << "Role: " << user->getRole() << std::endl;
     }
 
+    // Create the IssueTypesDAO object
+    IssueTypesDAO issueTypesDAO(db);
 
+    // Create a new issue type
+    IssueType issueType1(0, "Bug");
+    issueTypesDAO.create(issueType1);
+
+    // List all issue types
+    std::vector<std::shared_ptr<IssueType>> issueTypes = issueTypesDAO.list();
+    for (auto& issueType : issueTypes) {
+        std::cout << "Issue Type ID: " << issueType->getId() << ", Issue Type Name: " << issueType->getName() << std::endl;
+    }
+
+    // Update the name of the issue type
+    issueType1.setName("Feature");
+    issueTypesDAO.update(issueType1);
+
+    // Delete the issue type
+   // issueTypesDAO.del(issueType1.getId());
+
+    // List all issue types again
+    issueTypes = issueTypesDAO.list();
+    for (auto& issueType : issueTypes) {
+        std::cout << "Issue Type ID: " << issueType->getId() << ", Issue Type Name: " << issueType->getName() << std::endl;
+    }
+
+    // Get an issue type by ID
+    std::shared_ptr<IssueType> issueType = issueTypesDAO.getIssueType(1);
+    if (issueType != nullptr) {
+        std::cout << "Issue Type ID: " << issueType->getId() << ", Issue Type Name: " << issueType->getName() << std::endl;
+    }
     return 0;
 }

@@ -210,5 +210,7 @@ int main() {
     if (issueType != nullptr) {
         std::cout << "Issue Type ID: " << issueType->getId() << ", Issue Type Name: " << issueType->getName() << std::endl;
     }
+
+
     return 0;
 }

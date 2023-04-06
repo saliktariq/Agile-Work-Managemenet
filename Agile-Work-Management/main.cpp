@@ -3,7 +3,7 @@
 #include "database.h"
 #include "ProjectDAO.h"
 #include "Project.h"
-//#include "kanban_boards.h"
+#include "KanbanColumnsDAO.h"
 #include "KanbanBoardsDAO.h"
 using namespace std;
 int main() {
@@ -98,6 +98,43 @@ int main() {
         std::cout << "Project ID: " << board->getProjectId() << std::endl;
         std::cout << "Start Date: " << board->getStartDate() << std::endl;
         std::cout << "End Date: " << board->getEndDate() << std::endl;
+    }
+
+    // Test the KanbanColumnsDAO
+    KanbanColumnsDAO kanbanColumnsDAO(db);
+    KanbanColumn column1(0, "Column 1", 1, 1);
+    KanbanColumn column2(0, "Column 2", 1, 2);
+
+    // Create two columns
+    kanbanColumnsDAO.create(column1);
+    kanbanColumnsDAO.create(column2);
+
+    // List all columns for board 1
+    std::vector<std::shared_ptr<KanbanColumn>> columns = kanbanColumnsDAO.list(1);
+    for (auto& column : columns) {
+        std::cout << "Column ID: " << column->getId() << ", Column Name: " << column->getName() << ", Board ID: " << column->getBoardId() << ", Position: " << column->getPosition() << std::endl;
+    }
+
+    // Update the name of column 1
+    column1.setName("Updated Column 1");
+    kanbanColumnsDAO.update(column1);
+
+    // Delete column 2
+    kanbanColumnsDAO.del(column2.getId());
+
+    // List all columns for board 1 again
+    columns = kanbanColumnsDAO.list(1);
+    for (auto& column : columns) {
+        std::cout << "Column ID: " << column->getId() << ", Column Name: " << column->getName() << ", Board ID: " << column->getBoardId() << ", Position: " << column->getPosition() << std::endl;
+    }
+
+    // Get column by ID
+    std::shared_ptr<KanbanColumn> column = kanbanColumnsDAO.getColumn(1);
+    if (column != nullptr) {
+        std::cout << "Column ID: " << column->getId() << std::endl;
+        std::cout << "Column Name: " << column->getName() << std::endl;
+        std::cout << "Board ID: " << column->getBoardId() << std::endl;
+        std::cout << "Position: " << column->getPosition() << std::endl;
     }
 
 

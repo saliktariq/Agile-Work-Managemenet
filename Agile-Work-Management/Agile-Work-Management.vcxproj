@@ -137,7 +137,9 @@
     <ClInclude Include="credentials.h" />
     <ClInclude Include="database.h" />
     <ClInclude Include="KanbanBoardsDAO.h" />
+    <ClInclude Include="KanbanColumnsDAO.h" />
     <ClInclude Include="kanban_boards.h" />
+    <ClInclude Include="kanban_columns.h" />
     <ClInclude Include="project.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

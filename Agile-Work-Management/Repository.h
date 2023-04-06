@@ -112,21 +112,21 @@ public:
         return dao.getBoard(boardId);
     }
 
-    void create(KanbanBoard& board) {
+    void createKanbanBoards(KanbanBoard& board) {
         db_->connect();
         KanbanBoardsDAO dao(db_);
         dao.create(board);
 
     }
 
-    void update(const KanbanBoard& board) {
+    void updateKanbanBoards(const KanbanBoard& board) {
         db_->connect();
         KanbanBoardsDAO dao(db_);
         dao.update(board);
 
     }
 
-    void del(int id) {
+    void delKanbanBoardById(int id) {
         db_->connect();
         KanbanBoardsDAO dao(db_);
         dao.del(id);
@@ -191,7 +191,7 @@ public:
 
     }
 
-    std::shared_ptr<Project> getProject(int projectId) {
+    std::shared_ptr<Project> getProjectById(int projectId) {
         db_->connect();
         ProjectsDAO dao(db_);
         return dao.getProject(projectId);

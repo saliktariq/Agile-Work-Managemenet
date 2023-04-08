@@ -224,6 +224,11 @@ public:
 
     }
 
+    std::vector<std::shared_ptr<User>> listAllUsers() {
+        UsersDAO dao(db_);
+        return dao.list();
+    }
+    
 
     
 };

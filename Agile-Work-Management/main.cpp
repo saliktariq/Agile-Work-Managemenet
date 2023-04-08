@@ -16,5 +16,6 @@ int main(){
     t.TEST_KanbanBoards();
     t.TEST_Kanban_Column();
     t.TEST_IssueType();
+    t.TEST_Issues();
     return 0;
 }

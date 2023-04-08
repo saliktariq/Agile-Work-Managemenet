@@ -4,6 +4,8 @@
 #include <windows.h>
 #include <sstream>
 #include <iomanip>
+#include "Priority.h"
+#include "Status.h"
 
 
 using namespace std;
@@ -223,7 +225,69 @@ public:
         }
     }
 
+    void TEST_Issues() {
+        std::cout << "\033[44;37mTESTING ISSUES CLASS DATABASE OPERATIONS\033[0m" << std::endl;
 
+        std::string summary = "C++ Project";
+        std::string description = "The project front end GUI is not working";
+        std::string status = "To_Do";
+        std::string priority = "HIGH";
+        int assignee = 1;
+        int project_id = 1;
+        int issue_type = 1;
+        int column_id = 1;
+        double estimate = 1;
+
+        std::cout << "Creating an issue with the following field values:\n"
+            << "  Summary: " << summary << "\n"
+            << "  Description: " << description << "\n"
+            << "  Status: " << status << "\n"
+            << "  Priority: " << priority << "\n"
+            << "  Assignee: " << assignee << "\n"
+            << "  Project ID: " << project_id << "\n"
+            << "  Issue Type: " << issue_type << "\n"
+            << "  Column ID: " << column_id << "\n"
+            << "  Estimate: " << estimate << "\n";
+
+        Issues issue(0, summary, description, status, priority, assignee, project_id, issue_type, column_id, estimate);
+        std::cout << "Initialising Repository" << std::endl;
+        Repository* repository = new Repository();
+        std::cout << "Pusing issue type object to the database..." << std::endl;
+        repository->createIssue(issue);
+
+        std::cout << "Retrieving all issues for project ID " << project_id << " from the database..." << std::endl;
+        std::vector<std::shared_ptr<Issues>> issues = repository->listIssues(project_id);
+
+        std::cout << std::left << std::setw(10) << "ID"
+            << std::setw(30) << "Summary"
+            << std::setw(30) << "Description"
+            << std::setw(15) << "Status"
+            << std::setw(10) << "Priority"
+            << std::setw(10) << "Assignee"
+            << std::setw(10) << "Project ID"
+            << std::setw(15) << "Issue Type"
+            << std::setw(10) << "Column ID"
+            << std::setw(10) << "Estimate"
+            << std::endl;
+        std::cout << std::setfill('-') << std::setw(150) << "-" << std::endl;
+        std::cout << std::setfill(' ');
+        for (auto issue : issues) {
+            std::cout << std::left << std::setw(10) << issue->getIssueId()
+                << std::setw(30) << issue->getSummary()
+                << std::setw(30) << issue->getDescription()
+                << std::setw(15) << issue->getStatus()
+                << std::setw(10) << issue->getPriority()
+                << std::setw(10) << issue->getAssignee()
+                << std::setw(10) << issue->getProjectId()
+                << std::setw(15) << issue->getIssueType()
+                << std::setw(10) << issue->getColumnId()
+                << std::setw(10) << issue->getEstimate()
+                << std::endl;
+        }
+
+
+
+    }
 
 
 	

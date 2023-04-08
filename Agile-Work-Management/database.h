@@ -56,7 +56,7 @@ public:
         try {
             sql::Connection* con = getConnection();
             sql::Statement* stmt = con->createStatement();
-            std::vector<std::string> tableNames = { "users", "projects", "kanban_columns", "kanban_boards", "issue_types", "issues"};
+            std::vector<std::string> tableNames = {"issues", "issue_types", "kanban_boards", "kanban_columns", "projects", "users" };
             for (const std::string& tableName : tableNames) {
                 // Delete all rows from the table
                 std::string deleteSql = "DELETE FROM " + tableName;

@@ -51,5 +51,28 @@ public:
         connect();
         return connection_.get();
     }
+
+    void reset() {
+        try {
+            sql::Connection* con = getConnection();
+            sql::Statement* stmt = con->createStatement();
+            std::vector<std::string> tableNames = { "users", "projects", "kanban_columns", "kanban_boards", "issue_types", "issues"};
+            for (const std::string& tableName : tableNames) {
+                // Delete all rows from the table
+                std::string deleteSql = "DELETE FROM " + tableName;
+                stmt->execute(deleteSql);
+
+                // Reset the auto_increment value to 0
+                std::string resetSql = "ALTER TABLE " + tableName + " AUTO_INCREMENT=0";
+                stmt->execute(resetSql);
+            }
+            delete stmt;
+            disconnect();
+        }
+        catch (const sql::SQLException& e) {
+            std::cerr << "Error resetting database: " << e.what() << std::endl;
+        }
+    }
+
 };
 #endif

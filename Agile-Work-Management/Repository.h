@@ -34,6 +34,9 @@ public:
     
     std::shared_ptr<Database> db_ = std::make_shared<Database>(host, username, password, databaseName);
     
+    void resetDatabase() {
+        db_->reset();
+    }
 
     void createIssue(Issues& issue) {
 
@@ -135,6 +138,33 @@ public:
 
         KanbanBoardsDAO dao(db_);
         dao.del(id);
+    }
+
+    std::vector<std::shared_ptr<KanbanBoard>> getListOfAllKanbanBoards() {
+        KanbanBoardsDAO dao(db_);
+        return dao.list();
+    }
+
+
+    int getIDofLastKanbanBoardInserted() {
+        // Retrieve all kanban boards from the database
+        std::vector<std::shared_ptr<KanbanBoard>> kb = getListOfAllKanbanBoards();
+
+        // Check if the list is empty
+        if (kb.empty()) {
+            return 0; // No kanban boards in the database
+        }
+
+        // Loop through all kanban boards and find the last ID
+        int lastID = 0;
+        for (auto k : kb) {
+            int kbID = k->getId();
+            if (kbID > lastID) {
+                lastID = kbID;
+            }
+        }
+
+        return lastID;
     }
 
     std::vector<std::shared_ptr<KanbanColumn>> listColumns(int boardId) {

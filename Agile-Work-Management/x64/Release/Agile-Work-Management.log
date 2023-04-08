@@ -1,34 +1,8 @@
 ﻿  Scanning sources for module dependencies...
   main.cpp
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\xutility(261,71): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\xutility(260,16): message : see reference to function template instantiation '_Ty *std::construct_at<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&,0x0>(_Ty *const ,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(<expr>)' being compiled
-          with
-          [
-              _Ty=Issues
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\memory(1983): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(_Ty &,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(false)' being compiled
-          with
-          [
-              _Ty=Issues
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\memory(2663): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\memory(2664,20): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
-C:\githubrepositories\Agile-Work-Managemenet\Agile-Work-Management\IssuesDAO.h(123,1): message : see reference to function template instantiation 'std::shared_ptr<Issues> std::make_shared<Issues,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\xutility(275,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\xutility(262,85): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\xutility(268): message : see reference to function template instantiation '_Ty *std::construct_at<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&,0x0>(_Ty *const ,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(false)' being compiled
-          with
-          [
-              _Ty=Issues
-          ]
-C:\Program Files\Microsoft Visual Studio\2022\Professional\VC\Tools\MSVC\14.35.32215\include\memory(1983): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(_Ty &,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(false)' being compiled
-          with
-          [
-              _Ty=Issues
-          ]
      Creating library C:\githubrepositories\Agile-Work-Managemenet\Agile-Work-Management\x64\Release\Agile-Work-Management.lib and object C:\githubrepositories\Agile-Work-Managemenet\Agile-Work-Management\x64\Release\Agile-Work-Management.exp
   Generating code
-  1 of 297 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  2 of 297 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

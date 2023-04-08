@@ -35,6 +35,8 @@ public:
             }
             delete rs;
             delete stmt;
+
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error creating kanban column: " << e.what() << std::endl;
@@ -51,6 +53,7 @@ public:
             pstmt->setInt(4, column.getId());
             pstmt->execute();
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error updating kanban column: " << e.what() << std::endl;
@@ -65,6 +68,7 @@ public:
             pstmt->setInt(1, id);
             pstmt->execute();
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error deleting kanban column: " << e.what() << std::endl;
@@ -91,6 +95,7 @@ public:
 
             delete rs;
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error listing Kanban columns: " << e.what() << std::endl;
@@ -114,12 +119,13 @@ public:
                         rs->getInt("column_position"));
                 delete rs;
                 delete pstmt;
-
+                db_->disconnect();
                 return column;
             }
             else {
                 delete rs;
                 delete pstmt;
+                db_->disconnect();
                 return nullptr;
             }
         }

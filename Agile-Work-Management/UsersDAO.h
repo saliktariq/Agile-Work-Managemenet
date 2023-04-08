@@ -36,6 +36,8 @@ public:
             }
             delete rs;
             delete stmt;
+
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error creating user: " << e.what() << std::endl;
@@ -53,6 +55,7 @@ public:
             pstmt->setInt(5, user.getId());
             pstmt->execute();
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error updating user: " << e.what() << std::endl;
@@ -67,6 +70,7 @@ public:
             pstmt->setInt(1, id);
             pstmt->execute();
             delete pstmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error deleting user: " << e.what() << std::endl;
@@ -94,6 +98,7 @@ public:
 
             delete rs;
             delete stmt;
+            db_->disconnect();
         }
         catch (const sql::SQLException& e) {
             std::cerr << "Error listing users: " << e.what() << std::endl;
@@ -120,11 +125,13 @@ public:
                 );
                 delete rs;
                 delete pstmt;
+                db_->disconnect();
                 return user;
             }
             else {
                 delete rs;
                 delete pstmt;
+                db_->disconnect();
                 return nullptr;
             }
         }

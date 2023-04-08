@@ -16,10 +16,7 @@
 class Repository {
 
 public:
-    Repository() {
-        std::shared_ptr<Database> db_ = std::make_shared<Database>(host, username, password, databaseName);
-        db_->connect();
-    }
+    Repository() {}
 
     ~Repository() {
         db_->disconnect();
@@ -34,8 +31,8 @@ public:
 
     /* Declaring and Instantiating database*/
     //std::shared_ptr<Database> db_ = std::make_shared<Database>(host, username, password, databaseName);
-    std::shared_ptr<Database> db_;
-
+    
+    std::shared_ptr<Database> db_ = std::make_shared<Database>(host, username, password, databaseName);
     
 
     void createIssue(Issues& issue) {

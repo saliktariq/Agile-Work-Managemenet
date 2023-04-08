@@ -203,6 +203,27 @@ public:
         
     }
 
+    int getIDofLastProjectInserted() {
+        // Retrieve all projects from the database
+        std::vector<std::shared_ptr<Project>> projects = listProjects();
+
+        // Check if the list is empty
+        if (projects.empty()) {
+            return 0; // No projects in the database
+        }
+
+        // Loop through all projects and find the last ID
+        int lastID = 0;
+        for (auto project : projects) {
+            int projectID = project->getId();
+            if (projectID > lastID) {
+                lastID = projectID;
+            }
+        }
+
+        return lastID;
+    }
+
     void createUser(User& user) {
 
         UsersDAO dao(db_);
@@ -227,6 +248,19 @@ public:
     std::vector<std::shared_ptr<User>> listAllUsers() {
         UsersDAO dao(db_);
         return dao.list();
+    }
+
+    int getIDofLastUserInserted() {
+        UsersDAO dao(db_);
+        std::vector<std::shared_ptr<User>> users = listAllUsers();
+        int lastId = 0;
+        for (auto user : users) {
+            int id = user->getId();
+            if (id > lastId) {
+                lastId = id;
+            }
+        }
+        return lastId;
     }
     
 

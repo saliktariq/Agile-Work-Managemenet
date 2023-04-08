@@ -141,5 +141,34 @@ public:
         }
     }
 
+    // Get the ID of the last inserted row in the users table
+    int getLastID() {
+        try {
+            sql::Connection* con = db_->getConnection();
+            sql::Statement* stmt = con->createStatement();
+            sql::ResultSet* rs = stmt->executeQuery("SELECT LAST_INSERT_ID()");
+
+            if (rs->next()) {
+                int lastID = rs->getInt(1);
+                delete rs;
+                delete stmt;
+                db_->disconnect();
+                return lastID;
+            }
+            else {
+                delete rs;
+                delete stmt;
+                db_->disconnect();
+                return -1; // or some other error code to indicate failure
+            }
+        }
+        catch (const sql::SQLException& e) {
+            std::cerr << "Error getting last ID: " << e.what() << std::endl;
+            return -1; // or some other error code to indicate failure
+        }
+    }
+
+
+
 };
 #endif

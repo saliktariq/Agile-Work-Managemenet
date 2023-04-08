@@ -5,6 +5,7 @@
 #include <sstream>
 #include <iomanip>
 
+
 using namespace std;
 
 class TEST {
@@ -15,7 +16,7 @@ public:
 
 	void Test_User() {
 		//system("cls");
-		std::cout << "\033[44;37mTESTING USERS DATABASE OPERATIONS\033[0m" << std::endl;
+		std::cout << "\033[44;37mTESTING USERS CLASS DATABASE OPERATIONS\033[0m" << std::endl;
 		string username = "Test_Username";
 		string fullname = "Test Full Name";
 		string emailaddress = "test@testemail.com";
@@ -49,7 +50,37 @@ public:
 				<< std::setw(20) << user->getRole() << std::endl;
 		}
 
+		cout << "The ID of the last user inserted is: " << repository->getIDofLastUserInserted() << endl;
+
 	}
+
+    void TEST_Project() {
+        std::cout << "\033[44;37mTESTING PROJECTS CLASS DATABASE OPERATIONS\033[0m" << std::endl;
+        std::string projectName = "Test_Project";
+        Project p(0, projectName);
+        std::cout << "Setting project name to \'Test_Project\'" << std::endl;
+        std::cout << "Initialising Repository" << std::endl;
+        Repository* repository = new Repository();
+        std::cout << "Pusing project object to the database..." << std::endl;
+        repository->createProject(p);
+        std::cout << "Retrieving all project names from the database..." << std::endl;
+        std::vector<std::shared_ptr<Project>> projects = repository->listProjects();
+        std::cout << std::left << std::setw(10) << "ID"
+            << std::setw(30) << "Project Name" << std::endl;
+
+        std::cout << std::setfill('-') << std::setw(50) << "-" << std::endl;
+
+        std::cout << std::setfill(' ');
+
+        for (auto project : projects) {
+            std::cout << std::left << std::setw(10) << project->getId()
+                << std::setw(30) << project->getName() << std::endl;
+        }
+
+		cout << "The ID of the last project inserted is: " << repository->getIDofLastProjectInserted() << endl;
+        
+    }
+
 
 
 	

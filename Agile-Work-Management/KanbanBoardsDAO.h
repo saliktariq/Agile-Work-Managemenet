@@ -146,6 +146,38 @@ public:
         }
     }
 
+    std::vector<std::shared_ptr<KanbanBoard>> list() {
+        std::vector<std::shared_ptr<KanbanBoard>> boards;
+
+        try {
+            sql::Connection* con = db_->getConnection();
+            sql::PreparedStatement* pstmt = con->prepareStatement(
+                "SELECT board_id, board_name, project_id, start_date, end_date FROM kanban_boards");
+            sql::ResultSet* rs = pstmt->executeQuery();
+
+            while (rs->next()) {
+                int boardId = rs->getInt("board_id");
+                std::string name = rs->getString("board_name");
+                int projectId = rs->getInt("project_id");
+                std::string startDate = rs->getString("start_date");
+                std::string endDate = rs->getString("end_date");
+                std::shared_ptr<KanbanBoard> board =
+                    std::make_shared<KanbanBoard>(boardId, name, projectId, startDate, endDate);
+                boards.push_back(board);
+            }
+
+            delete rs;
+            delete pstmt;
+            db_->disconnect();
+        }
+        catch (const sql::SQLException& e) {
+            std::cerr << "Error listing Kanban boards: " << e.what() << std::endl;
+        }
+
+        return boards;
+    }
+
+
 
 };
 

@@ -3,6 +3,7 @@
 #define PROJECT_H
 
 #include <string>
+#include <vector>
 
 class Project {
 private:
@@ -19,6 +20,14 @@ public:
 
     const std::string& getName() const { return name_; }
     void setName(const std::string& name) { name_ = name; }
+
+    std::vector<std::pair<std::string, std::string>> getAllFields() const {
+        std::vector<std::pair<std::string, std::string>> fields;
+        fields.emplace_back("ID", std::to_string(id_));
+        fields.emplace_back("Name", name_);
+        return fields;
+    }
+
 };
 
 #endif

@@ -2,6 +2,8 @@
 #define USERS_H
 
 #include <string>
+#include <vector>
+#include <iomanip>
 
 class User {
 private:
@@ -53,5 +55,16 @@ public:
     void setRole(const std::string& role) {
         role_ = role;
     }
+
+    std::vector<std::pair<std::string, std::string>> getAllFields() const {
+        std::vector<std::pair<std::string, std::string>> fields;
+        fields.emplace_back("ID", std::to_string(id_));
+        fields.emplace_back("Username", username_);
+        fields.emplace_back("Full Name", fullName_);
+        fields.emplace_back("Email", email_);
+        fields.emplace_back("Role", role_);
+        return fields;
+    }
+
 };
 #endif

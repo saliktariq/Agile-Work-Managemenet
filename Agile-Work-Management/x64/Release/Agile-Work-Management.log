@@ -1,20 +1,34 @@
-﻿  ProjectDAO.h
-  menu.cpp
-Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\Agile-Work-Management\menu.cpp(318,11): warning C4101: 'issueId': unreferenced local variable
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xutility(275,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(1983): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(_Ty &,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(false)' being compiled
+﻿  main.cpp
+Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\New folder\Agile-Work-Managemenet\Agile-Work-Management\Tests.cpp(252,110): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\New folder\Agile-Work-Managemenet\Agile-Work-Management\menu.h(256,22): warning C4101: 'projectId': unreferenced local variable
+Z:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xutility(275,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Z:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(1983): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(_Ty &,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(false)' being compiled
           with
           [
               _Ty=Issues
           ]
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(2663): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(2664,20): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
-Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\Agile-Work-Management\issuesDAO.h(122,1): message : see reference to function template instantiation 'std::shared_ptr<Issues> std::make_shared<Issues,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
-     Creating library Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\Agile-Work-Management\x64\Release\Agile-Work-Management.lib and object Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\Agile-Work-Management\x64\Release\Agile-Work-Management.exp
+Z:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(2663): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
+Z:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(2664,20): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
+Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\New folder\Agile-Work-Managemenet\Agile-Work-Management\IssuesDAO.h(122,1): message : see reference to function template instantiation 'std::shared_ptr<Issues> std::make_shared<Issues,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
+  ProjectDAO.h
+  menu.cpp
+  Tests.cpp
+Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\New folder\Agile-Work-Managemenet\Agile-Work-Management\Tests.cpp(252,110): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Z:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\xutility(275,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Z:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(1983): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(_Ty &,int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &) noexcept(false)' being compiled
+          with
+          [
+              _Ty=Issues
+          ]
+Z:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(2663): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
+Z:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.35.32215\include\memory(2664,20): message : see reference to function template instantiation 'std::_Ref_count_obj2<Issues>::_Ref_count_obj2<int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
+Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\New folder\Agile-Work-Managemenet\Agile-Work-Management\IssuesDAO.h(122,1): message : see reference to function template instantiation 'std::shared_ptr<Issues> std::make_shared<Issues,int&,std::string&,std::string&,std::string&,std::string&,int&,int&,int&,int&,double&>(int &,std::string &,std::string &,std::string &,std::string &,int &,int &,int &,int &,double &)' being compiled
+     Creating library Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\New folder\Agile-Work-Managemenet\Agile-Work-Management\x64\Release\Agile-Work-Management.lib and object Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\New folder\Agile-Work-Managemenet\Agile-Work-Management\x64\Release\Agile-Work-Management.exp
   Generating code
-  95 of 898 functions (10.6%) were compiled, the rest were copied from previous compilation.
-    5 functions were new in current compilation
-    145 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB not found, fall back to full compilation.
+Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\New folder\Agile-Work-Managemenet\Agile-Work-Management\KanbanBoardsDAO.h(46): warning C4715: 'KanbanBoardsDAO::create': not all control paths return a value
+Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\New folder\Agile-Work-Managemenet\Agile-Work-Management\ProjectDAO.h(43): warning C4715: 'ProjectsDAO::create': not all control paths return a value
+  All 866 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
 mysqlcppconn-static.lib(mysql_driver.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_driver.obj)' or at ''; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_connection.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_connection.obj)' or at ''; linking object as if no debug info
@@ -38,4 +52,4 @@ mysqlcppconn-static.lib(mysql_native_resultset_wrapper.obj) : warning LNK4099: P
 mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_native_statement_wrapper.obj)' or at ''; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_art_rset_metadata.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_art_rset_metadata.obj)' or at ''; linking object as if no debug info
 mysqlcppconn-static.lib(mysql_resultset_metadata.obj) : warning LNK4099: PDB '' was not found with 'mysqlcppconn-static.lib(mysql_resultset_metadata.obj)' or at ''; linking object as if no debug info
-  Agile-Work-Management.vcxproj -> Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\Agile-Work-Management\x64\Release\Agile-Work-Management.exe
+  Agile-Work-Management.vcxproj -> Z:\Users\stv14\Documents\uni\grad scheme\Wiley.Edge\c343\C++ proj final\Agile-Work-Managemenet-main\New folder\Agile-Work-Managemenet\Agile-Work-Management\x64\Release\Agile-Work-Management.exe

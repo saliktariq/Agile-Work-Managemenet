@@ -35,6 +35,17 @@ public:
 
     const std::string& getEndDate() const { return end_date_; }
     void setEndDate(const std::string& end_date) { end_date_ = end_date; }
+
+
+    std::vector<std::pair<std::string, std::string>> getAllFields() const {
+        std::vector<std::pair<std::string, std::string>> fields;
+        fields.emplace_back("ID", std::to_string(id_));
+        fields.emplace_back("Name", name_);
+        fields.emplace_back("Project ID", std::to_string(project_id_));
+        fields.emplace_back("Start Date", start_date_);
+        fields.emplace_back("End Date", end_date_);
+        return fields;
+    }
 };
 
 #endif

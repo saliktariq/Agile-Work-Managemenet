@@ -133,10 +133,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ProjectDAO.h" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="Tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="credentials.h" />
     <ClInclude Include="database.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="issues.h" />
     <ClInclude Include="IssuesDAO.h" />
     <ClInclude Include="IssuesTypesDAO.h" />
@@ -145,7 +147,10 @@
     <ClInclude Include="KanbanColumnsDAO.h" />
     <ClInclude Include="kanban_boards.h" />
     <ClInclude Include="kanban_columns.h" />
+    <ClInclude Include="Priority.h" />
     <ClInclude Include="project.h" />
+    <ClInclude Include="Repository.h" />
+    <ClInclude Include="Status.h" />
     <ClInclude Include="users.h" />
     <ClInclude Include="UsersDAO.h" />
   </ItemGroup>

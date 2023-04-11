@@ -1,3 +1,6 @@
+#ifndef PROJECT_DAO_H
+#define PROJECT_DAO_H
+
 #include "Project.h"
 #include <memory>
 #include <cppconn/driver.h>
@@ -124,3 +127,4 @@ public:
     }
 
 };
+#endif

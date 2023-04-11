@@ -1,9 +1,7 @@
 #include <iostream>
 #include "Repository.h"
-#include <windows.h>
-#include <sstream>
-#include <iomanip>
 #include "Tests.cpp"
+#include <thread>
 using namespace std;
 
 
@@ -29,31 +27,65 @@ int main(){
         // call the selected function based on user's input
         switch (option) {
         case 1:
-            t.Test_User();
+        {
+            thread t1([&t]() {
+                t.Test_User();
+                });
+            t1.join();
+        }
             break;
         case 2:
-            t.TEST_Project();
-            break;
+        {
+            thread t1([&t]() {
+                t.TEST_Project();
+                });
+            t1.join();
+        }
+        break;
         case 3:
-            t.TEST_KanbanBoards();
-            break;
+        {
+            thread t1([&t]() {
+                t.TEST_KanbanBoards();
+                });
+            t1.join();
+        }
+        break;
         case 4:
-            t.TEST_Kanban_Column();
-            break;
+        {
+            thread t1([&t]() {
+                t.TEST_Kanban_Column();
+                });
+            t1.join();
+        }
+        break;
         case 5:
-            t.TEST_IssueType();
-            break;
+        {
+            thread t1([&t]() {
+                t.TEST_IssueType();
+                });
+            t1.join();
+        }
+        break;
         case 6:
-            t.TEST_Issues();
-            break;
+        {
+            thread t1([&t]() {
+                t.TEST_Issues();
+                });
+            t1.join();
+        }
+        break;
         case 7:
-
-            t.Test_User();
-            t.TEST_Project();
-            t.TEST_KanbanBoards();
-            t.TEST_Kanban_Column();
-            t.TEST_IssueType();
-            t.TEST_Issues();
+        {
+            thread t1([&t]() {
+                t.Test_User();
+                t.TEST_Project();
+                t.TEST_KanbanBoards();
+                t.TEST_Kanban_Column();
+                t.TEST_IssueType();
+                t.TEST_Issues();
+                });
+            t1.join();
+        }
         case 0:
             cout << "Exiting..." << endl;
             break;
